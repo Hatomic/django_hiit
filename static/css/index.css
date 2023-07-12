@@ -1,0 +1,15 @@
+
+        body {
+            margin: 0px;
+        }
+        .all{
+            background-color: blueviolet;
+            margin: 0px;
+            height: 200px;
+        }
+        .blogtitle{
+            text-align: center;
+        }
+        .but {
+            margin-left: 50%;
+        }

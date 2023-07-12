@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h1>Edit your post</h1>
+        <input type="text" placeholder="Title" name="title" value="{{ post.title }}"><br>
+        <input type="text" placeholder="category" name="category" value=" {{ post.category }}"><br>
+        <textarea name="content" id="" cols="30" rows="10" placeholder="content">{{ post.content }}</textarea><br>
+        <input type="file" value="{{ post.image }}" name="img"> <br>
+        <button>Edit</button>
+    </form>
+</body>
+</html>

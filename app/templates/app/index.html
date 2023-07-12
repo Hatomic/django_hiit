@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+    {% for message in messages %}
+    <p style="color: green;">{{ message }}</p>
+    {% endfor %}
+    <!-- if you want to change the home page -->
+    {% if user.is_authenticated %}
+    <h1>Welcome {{user.username}}</h1>
+    <a href="{% url 'logout' %}"><button>Logout</button></a>
+    {% else %}
+    <p> Samson meets Delilah</p>
+    <p>#Samson no dey learn lesson</p>
+    <a href="{% url 'login' %}"><button>Login</button></a>
+    <a href="{% url 'signup' %}"><button>Signup</button></a>
+    {% endif %}
+
+    {% for post in posts %}
+    <div class="all">
+        <h3 class="blogtitle">{{post.title}}</h3>
+
+        <div class="bottom">
+            <p>By {{post.author.username}}</p>
+            <p>date {{post.date}}</p>
+        </div>
+        <a href="{% url 'read' post.id %}"><button class="but">read</button></a>
+    </div>
+    {% endfor %}
+
+    
+</body>
+</html>
