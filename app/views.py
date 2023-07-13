@@ -97,3 +97,10 @@ def edit (request, id):
         messages.info (request, "Post edited successfully")
         return redirect(reverse("home"))
     return render(request, "app/edit.html", context)
+
+def error(request, exception):
+    return render(request, "app/error.html")
+
+
+def server(request):
+    return render(request, "app/server.html")
